@@ -17,7 +17,7 @@ A smart home automation system built using Raspberry Pi Pico that controls door 
 | Stepper Motor (28BYJ-48) | 1 | Door opening mechanism |
 | ULN2003 Driver Board | 1 | Stepper motor driver |
 | LED Light | 1 | Status indicator |
-| Distance Sensor(HC-SR04) | 1 | Do measure distance to open door and turn light on |
+| Distance Sensor(HC-SR04) | 1 | Measure distance to open/close door and turn light on/off |
 | Jumper Wires | Multiple | Connections |
 | Breadboard | 1 | Prototyping |
 | Power Supply | 1 | 5V for motor, 3.3V for Pico |
@@ -26,8 +26,8 @@ A smart home automation system built using Raspberry Pi Pico that controls door 
 ![Circuit Diagram](images/circuit.png)
 
 
-🔧 Setup Instructions
-1. Hardware Connections
+## 🔧 Setup Instructions
+### 1. Hardware Connections
 Ultrasonic Sensor:
 
 VCC → 5V
@@ -56,43 +56,45 @@ Anode → GPIO 14 (with current-limiting resistor(240 ohm used here))
 
 Cathode → GND
 
-2. Software Installation
-Install Thonny IDE on your computer
+### 2. Software Installation
+1. Install Thonny IDE on your computer
 
-Install MicroPython on Raspberry Pi Pico
+2. Install MicroPython on Raspberry Pi Pico
 
-Connect Pico to computer via USB
+3. Connect Pico to computer via USB
 
-Open automation_door&light.py in Thonny
+4. Open automation_door&light.py in Thonny
 
 Upload to Pico as main.py to run this script as soon as you plug in your pico. 
 Or upload with any other name(eg. automation.py) and run script manually with thonny
 
-🚀 How to Use
-Upload the code to Raspberry Pi Pico as main.py 
+### 🚀 How to Use
+1. Upload the code to Raspberry Pi Pico as main.py 
 
-Connect all hardware components as specified
+2. Connect all hardware components as specified
 
-Power the system
+3. Power the system
 
 The system will automatically:
 
-1. Monitor distance using ultrasonic sensor
+i. Monitor distance using ultrasonic sensor
 
-2. pen door and turn on LED when object < 50cm detected
+ii. pen door and turn on LED when object < 50cm detected
 
-3. Close door and turn off LED when object moves away
+iii. Close door and turn off LED when object moves away
 
-4. Print distance readings and status messages to console
+iv. Print distance readings and status messages to console
 
-⚙️ Configuration
+### ⚙️ Configuration
 You can modify these constants in the code:
 
 DISTANCE_THRESHOLD = 50  # Detection distance in cm
+
 STEP_DELAY = 2           # Motor step delay in milliseconds
+
 STEPS_PER_REVOLUTION = 1024  # Number of steps of stepper motor for full door operation
 
-🔄 Operation Flow
+### 🔄 Operation Flow
 Initialization: System starts with door closed and LED off
 
 Distance Measurement: Continuous monitoring via ultrasonic sensor
@@ -105,7 +107,7 @@ Door Closing: When object moves away (>50cm), door closes, LED turns off
 
 Error Handling: Automatic motor stop and LED off on errors
 
-🛠 Troubleshooting
+### 🛠 Troubleshooting
 Sensor not reading: Check TRIG/ECHO connections and power supply
 
 Motor not moving: Verify stepper driver connections and external power
@@ -114,7 +116,7 @@ LED not lighting: Check GPIO 14 connection and resistor
 
 Program crashes: Monitor Thonny console for error messages
 
-📝 Notes
+### 📝 Notes
 Ensure stepper motor has adequate power supply (not from Pico's 3.3V, use external battery of 5-12V)
 
 Adjust DISTANCE_THRESHOLD for different detection ranges
@@ -123,7 +125,7 @@ Modify STEP_DELAY for faster/slower motor movement
 
 The system uses half-step sequence for smoother motor operation
 
-🎯 Applications
+### 🎯 Applications
 1. Automated doors for small projects
 
 2. Security systems
