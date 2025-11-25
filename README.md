@@ -23,7 +23,7 @@ A smart home automation system built using Raspberry Pi Pico that controls door 
 | Power Supply | 1 | 5V for motor, 3.3V for Pico |
 
 ## 🔌 Circuit Diagram
-<img width="620" height="340" alt="circuit" src="(images/circuit.png)" />
+![Circuit Diagram](images/circuit.png)
 
 
 ### Stepper Motor Connections
